@@ -1,0 +1,79 @@
+<div *ngIf="!studentList" class="spinner-border text-primary justify-center" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+
+
+
+<table class="table" *ngIf="studentList">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Contact</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of studentList; let i=index;">
+      <th scope="row">{{i}}</th>
+      <td>{{student.first_Name}}</td>
+      <td>{{student.last_Name}}</td>
+      <td>{{student.contact}}</td>
+      <td><button (click)="setSelectedStudent(student)" class="btn btn-danger" data-bs-toggle="modal"
+          data-bs-target="#removeStudentAlert"><i class="bi bi-trash3"></i></button></td>
+      <td><button (click)="setSelectedStudent(student)" class="btn btn-success" data-bs-toggle="modal"
+          data-bs-target="#updateDetails"><i class="bi bi-pencil-square"></i></button></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Modal Delete-->
+<div class="modal fade" id="removeStudentAlert" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="modal-body p-4 text-center">
+          <h5 class="mb-0">Delete !</h5>
+          <p class="mb-0">Are you sure you want to delete this data?</p>
+        </div>
+        <div class="modal-footer flex-nowrap p-0">
+          <button type="button" (click)="removeStudent()"
+            class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0 border-end"
+            data-bs-dismiss="modal"><strong>Yes Proceed</strong></button>
+          <button type="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0"
+            data-bs-dismiss="modal">No thanks</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Update-->
+<div class="modal fade" id="updateDetails" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Update Details</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-body p-5 pt-0">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control rounded-3" id="floatingInput" [(ngModel)]="selectedStudent && selectedStudent.first_Name">
+              <label for="floatingInput">First Name</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control rounded-3" id="floatingPassword" [(ngModel)]="selectedStudent && selectedStudent.last_Name">
+              <label for="floatingPassword">Last Name</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control rounded-3" id="floatingPassword" [(ngModel)]="selectedStudent && selectedStudent.contact">
+              <label for="floatingPassword">Contact</label>
+            </div>
+            <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit" data-bs-dismiss="modal" (click)="updateStudent()">Update</button>
+        </div>
+      </div>
+    </div>
+  

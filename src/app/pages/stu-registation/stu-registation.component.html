@@ -1,0 +1,43 @@
+<div class="input-group mb-3">
+    <input type="text" class="form-control"  [(ngModel)]="student.first_Name" placeholder="First Name" aria-label="firstname">
+    <input type="text" class="form-control" [(ngModel)]="student.last_Name" placeholder="Last Name" aria-label="lastname">
+  </div>
+
+<div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1"></span>
+    <input type="text" class="form-control" placeholder="Batch Number" aria-label="Username" aria-describedby="basic-addon1">
+  </div>
+  
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Contact Number" aria-label="Recipient's username" aria-describedby="basic-addon2">
+    <span class="input-group-text" id="basic-addon2">+94</span>
+  </div>
+  <div class="input-group mb-3">
+        <button  (click)="createStudent()" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerStudentAlert" >Proceed</button>
+  </div>
+
+<!-- Modal -->
+<div class="modal fade" id="registerStudentAlert" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Registered</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-5">
+        <h2 class="fw-bold mb-0">Student Registered Successfully</h2>
+
+        <ul class="d-grid gap-4 my-5 list-unstyled small">
+          <li class="d-flex gap-4">
+            <svg class="bi text-body-secondary flex-shrink-0" width="48" height="48"><use xlink:href="#grid-fill"/></svg>
+            <div>
+              <h5 class="mb-0"></h5>
+             Student Registation ID : {{resentSavedStudent && resentSavedStudent.stu_id}}
+            </div>
+          </li>
+        </ul>
+        <button routerLink="list" type="button" class="btn btn-lg btn-primary mt-5 w-100" data-bs-dismiss="modal">Go to Student View..</button>
+      </div>
+    </div>
+  </div>
+</div>
