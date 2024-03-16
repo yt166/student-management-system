@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class SidePaneComponent {
 
+  public selectedMenu ="Home";
+
+  setSelectedMenu(menu:string){
+    this.selectedMenu = menu;
+  }
+
 }

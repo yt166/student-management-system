@@ -1,36 +1,36 @@
 <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 280px;">
     <ul class="nav nav-pills flex-column mb-auto">
-        <li>
-            <a routerLink="" class="nav-link link-body-emphasis">
+        <li (click)="setSelectedMenu('home')">
+            <a routerLink="" [ngClass]="{'active': selectedMenu =='home'}" class="nav-link ">
               <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
               Home
             </a>
           </li>
-      <li class="nav-item">
-        <a routerLink="register" class="nav-link active" aria-current="page">
+      <li class="nav-item" (click)="setSelectedMenu('register')">
+        <a routerLink="register"  [ngClass]="{'active': selectedMenu =='register'}" class="nav-link active" aria-current="page">
           <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"/></svg>
           Student Registration
         </a>
       </li>
-      <li>
-        <a routerLink="list" class="nav-link link-body-emphasis">
+      <li (click)="setSelectedMenu('list')">
+        <a routerLink="list"  [ngClass]="{'active': selectedMenu =='list'}" class="nav-link ">
           <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
           View Students
         </a>
       </li>
-      <li>
+      <li (click)="setSelectedMenu('home')">
         <a href="#" class="nav-link link-body-emphasis">
           <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"/></svg>
           Orders
         </a>
       </li>
-      <li>
+      <li (click)="setSelectedMenu('home')">
         <a href="#" class="nav-link link-body-emphasis">
           <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
           Products
         </a>
       </li>
-      <li>
+      <li (click)="setSelectedMenu('home')" >
         <a href="#" class="nav-link link-body-emphasis">
           <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
           Customers
