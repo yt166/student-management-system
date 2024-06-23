@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/StudentManagement
+    password: yuniT@166
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
